@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Sports Achievements</title>
+
+<style>
+/* ===== Reset ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, sans-serif;
+}
+
+/* ===== Luxury Dark Background ===== */
+body{
+    min-height:100vh;
+    background:#000;
+    color:#fff;
+    position:relative;
+    overflow-x:hidden;
+}
+
+/* Red Glow Lights */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(140,0,0,0.35), transparent 70%);
+    filter:blur(100px);
+    animation: luxuryMove 20s ease-in-out infinite;
+    z-index:-1;
+}
+
+body::after{
+    width:450px;
+    height:450px;
+    animation-delay:10s;
+}
+
+@keyframes luxuryMove{
+    0%{transform:translate(-120px,-120px);}
+    50%{transform:translate(160px,180px);}
+    100%{transform:translate(-120px,-120px);}
+}
+
+/* ===== Header ===== */
+header{
+    text-align:center;
+    padding:80px 20px;
+}
+
+header h1{
+    font-size:52px;
+    color:#b30000;
+    letter-spacing:3px;
+}
+
+header p{
+    margin-top:25px;
+    font-size:18px;
+    max-width:760px;
+    margin:auto;
+    color:#ddd;
+}
+
+/* ===== Section ===== */
+.section{
+    padding:70px 8%;
+}
+
+.section h2{
+    font-size:38px;
+    margin-bottom:40px;
+    border-left:6px solid #8b0000;
+    padding-left:18px;
+    color:#d40000;
+}
+
+/* ===== Gallery ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:35px;
+}
+
+.card{
+    background:rgba(0,0,0,0.82);
+    border:1px solid rgba(139,0,0,0.4);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.45s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:0 0 35px rgba(139,0,0,0.7);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    filter:contrast(1.05);
+}
+
+.card .info{
+    padding:20px;
+    text-align:center;
+}
+
+.card .info h3{
+    color:#e60000;
+    margin-bottom:10px;
+}
+
+.card .info p{
+    font-size:14px;
+    color:#bbb;
+}
+
+/* ===== Motivation ===== */
+.motivation{
+    background:linear-gradient(135deg, #0a0000, #260000);
+    padding:80px 12%;
+    text-align:center;
+    border-top:2px solid #8b0000;
+}
+
+.motivation h2{
+    font-size:44px;
+    color:#b30000;
+    margin-bottom:30px;
+}
+
+.motivation p{
+    font-size:20px;
+    line-height:1.9;
+    color:#eee;
+    max-width:920px;
+    margin:auto;
+}
+
+/* ===== Footer ===== */
+footer{
+    text-align:center;
+    padding:30px;
+    font-size:14px;
+    color:#888;
+}
+
+/* ===== Music Player ===== */
+.music-player{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.85);
+    border:2px solid #b30000;
+    border-radius:15px;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#fff;
+    font-weight:bold;
+    box-shadow:0 0 25px rgba(179,0,0,0.6);
+    z-index:1000;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.music-player:hover{
+    transform:translateX(-50%) scale(1.05);
+    box-shadow:0 0 35px rgba(179,0,0,0.8);
+}
+
+.music-player audio{
+    outline:none;
+    border-radius:10px;
+    background:#111;
+}
+
+/* ===== Lightbox ===== */
+.lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    visibility:hidden;
+    opacity:0;
+    transition:opacity 0.3s;
+    z-index:2000;
+    flex-direction:column;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:80%;
+    border-radius:15px;
+    box-shadow:0 0 35px rgba(255,0,0,0.7);
+    margin-bottom:20px;
+}
+
+.lightbox.visible{
+    visibility:visible;
+    opacity:1;
+}
+
+.lightbox span.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:#fff;
+    cursor:pointer;
+}
+
+.lightbox .nav{
+    display:flex;
+    justify-content:space-between;
+    width:200px;
+}
+
+.lightbox .nav span{
+    font-size:50px;
+    color:#fff;
+    cursor:pointer;
+    user-select:none;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>My Sports Achievements</h1>
+    <p>
+        Sport is not just about strength.  
+        It is about discipline, sacrifice, and the courage to never quit.
+    </p>
+</header>
+
+<!-- ===== Sections (Karate, Water Polo, Calisthenics, Boxing) ===== -->
+<section class="section">
+    <h2>🥋 Karate</h2>
+    <div class="gallery">
+        <div class="card"><img src="images/1769603631830.jpeg"><div class="info"><h3>Local Championship</h3><p>Discipline and fighting spirit</p></div></div>
+        <div class="card"><img src="images/1769604554605.jpeg"><div class="info"><h3>Black Belt</h3><p>Years of dedication</p></div></div>
+        <div class="card"><img src="images/1769604554612.jpg"><div class="info"><h3>Elite Training</h3><p>Precision and control</p></div></div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>🤽‍♂️ Water Polo</h2>
+    <div class="gallery">
+        <div class="card"><img src="images/1769605019246.jpg"><div class="info"><h3>Competitive Match</h3><p>Speed and tactics</p></div></div>
+        <div class="card"><img src="images/1769602089797.jpg"><div class="info"><h3>Intensive Training</h3><p>Endurance and power</p></div></div>
+        <div class="card"><img src="images/1769602089779.jpg"><div class="info"><h3>Teamwork</h3><p>Winning together</p></div></div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>🏋️‍♂️ Calisthenics</h2>
+    <div class="gallery">
+        <div class="card"><img src="images/1769607118156.jpg"><div class="info"><h3>Street Workout</h3><p>Strength & Mobility</p></div></div>
+        <div class="card"><img src="images/1769607118160.jpg"><div class="info"><h3>Advanced Moves</h3><p>Balance & Control</p></div></div>
+        <div class="card"><img src="images/1769607118167.jpg"><div class="info"><h3>Consistency</h3><p>Daily Progress</p></div></div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>🥊 Boxing</h2>
+    <div class="gallery">
+        <div class="card"><img src="images/1769606328140.jpg"><div class="info"><h3>Training Session</h3><p>Speed & Precision</p></div></div>
+        <div class="card"><img src="images/1769606328155.jpg"><div class="info"><h3>Competitive Fight</h3><p>Strategy & Power</p></div></div>
+        <div class="card"><img src="images/1769607118152.jpg"><div class="info"><h3>Endurance</h3><p>Never Give Up</p></div></div>
+    </div>
+</section>
+
+<!-- ===== Motivation ===== -->
+<section class="motivation">
+    <h2>🔥 Mindset</h2>
+    <p>
+        Every sacrifice has a meaning.  
+        Every drop of sweat is an investment.  
+        Stay focused, stay hungry,  
+        and let your results speak.
+    </p>
+</section>
+
+<!-- ===== Music Player ===== -->
+<div class="music-player">
+    <span>🎵 Now Playing: motivation</span>
+    <audio autoplay loop controls>
+        <source src="audio/DOORS Karaté calisthenics water polo box)(M4A_128K)_1.m4a" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+</section>
+
+<footer class="fade-in">
+    <a href="index.html">Log Out</a>
+</footer>
+
+<!-- ===== Lightbox ===== -->
+<div class="lightbox" id="lightbox">
+    <span class="close" id="close">&times;</span>
+    <img id="lightbox-img" src="">
+    <div class="nav">
+        <span id="prev">&#10094;</span>
+        <span id="next">&#10095;</span>
+    </div>
+</div>
+
+<footer>
+    © 2026 | Bahaa — Built by Discipline
+</footer>
+
+<script>
+// ===== Lightbox JS =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+const images = Array.from(document.querySelectorAll('.card img'));
+let currentIndex = 0;
+
+function showImage(index){
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.classList.add('visible');
+}
+
+images.forEach((img, i)=>{
+    img.addEventListener('click', ()=>{
+        showImage(i);
+    });
+});
+
+closeBtn.addEventListener('click', ()=>{
+    lightbox.classList.remove('visible');
+});
+
+lightbox.addEventListener('click', (e)=>{
+    if(e.target === lightbox) lightbox.classList.remove('visible');
+});
+
+prevBtn.addEventListener('click', ()=>{
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+});
+
+nextBtn.addEventListener('click', ()=>{
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+});
+
+// Optional: Keyboard navigation
+document.addEventListener('keydown', (e)=>{
+    if(!lightbox.classList.contains('visible')) return;
+    if(e.key === 'ArrowLeft') prevBtn.click();
+    if(e.key === 'ArrowRight') nextBtn.click();
+    if(e.key === 'Escape') closeBtn.click();
+});
+</script>
+
+</body>
+</html>

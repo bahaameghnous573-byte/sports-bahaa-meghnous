@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compte Bahaa</title>
+    <style>
+        /* ===== Body ===== */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #020202);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: #e0f7ff;
+        }
+
+        /* ===== Box Container ===== */
+        .box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
+            text-align: center;
+            backdrop-filter: blur(15px);
+            max-width: 500px;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.185);
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ff020250;
+        }
+
+        legend {
+            font-size: 18px;
+            color: #03aaa2;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Circle Image ===== */
+        .circle img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff111150;
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .circle img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 45px rgba(9, 10, 10, 0.6);
+        }
+
+        /* ===== Button ===== */
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #00cfff, #0099ff);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 480px) {
+            .box {
+                padding: 30px 20px;
+            }
+
+            .circle img {
+                width: 120px;
+                height: 120px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2, legend {
+                font-size: 16px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="circle">
+            <img src="images/1769606328140.jpg" alt="Photo 1">
+        </div>
+        <br>
+        <legend>La page Sports de bahaa</legend>
+        <h2><u>Appuyez sur le bouton :</u></h2>
+        <button id="h"><a href="index2.html">Oui</a></button>
+    </div>
+</body>
+</html>
